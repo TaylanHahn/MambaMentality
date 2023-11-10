@@ -1,0 +1,207 @@
+@charset "utf-8";
+
+body{
+    margin: 0;
+    padding: 0;
+    color: #161616;
+    font-family: sans-serif;
+    word-wrap: break-word; /*Quebrar a palavra quando não couber na tela*/
+    overflow-wrap: break-word; /*Quando não couber a palavra, ela irá ir para a próxima*/
+}
+
+h1, h2{
+    font-weight: 900;
+    color: #000000;
+}
+
+.wrapper{
+    width: 100%;
+    margin: 0 auto; /*Primeiro valor (0) é vertical e o segundo (auto) horizontal*/
+}
+
+main{
+    display: block;
+    background-color: #76757522;
+}
+
+.container{
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 15px;
+    /*Abaixo, as propriedades para fazer a animação funcionar*/
+    animation: surgir 1s ease;
+    animation-timeline: view();
+    animation-range: cover 0 cover 50%;
+}
+
+section.modulo p{
+    margin-bottom: 30px;
+    text-align: justify;
+    font-size: 1.5em;
+}
+
+section.modulo h2{
+    margin-bottom: 30px;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+section.modulo.content{
+    padding: 40px 0;
+    background: #c397dd;
+}
+
+section.modulo.content li{
+    font-size: 1.5em;
+}
+
+section.modulo.parallax{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh !important; /* !importante: Classifica minha formatação como importante, fazendo com que nenhuma configuração padrão de navegador venha alterar.*/
+    width: 100%;
+    position: relative;
+    overflow: hidden; /* Retira a barra de rolagem*/
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+section.modulo.parallax h1{
+    color: #a002fc;
+    text-align: center;
+    font-size: 80px;
+    text-transform: uppercase;
+    z-index: 50; /*Cria uma espécie de profundidade entre o h1 e o plano de fundo.*/
+}
+
+section.modulo.parallax span{
+    color: #fce302;
+}
+
+section.modulo.parallax:after{
+    content: ""; /*conteúdo vazio, é a camada de opacidade que criamos sobre as imagens*/
+    height: 100%;
+    width: 100%;
+    z-index: 8;
+    position: absolute;
+    background: linear-gradient(to bottom, rgbA(0,0,0,0) 0, rgbA(0,0,0,0) 50%,#000000 100%);
+}
+
+
+section.modulo.parallax-1{
+    background-image: url(https://wallpapercave.com/wp/wp11912368.jpg);
+}
+
+section.modulo.parallax-2{
+    background-image: url(https://pbs.twimg.com/media/EPPlttQUYAEPd7I?format=jpg&name=4096x4096);
+}
+
+section.modulo.parallax-3{
+    background-image: url(https://c.wallhere.com/photos/c6/e3/Kobe_Bryant_NBA_Los_Angeles_Lakers_basketball-1853819.jpg!d);
+}
+
+
+ footer{
+    display: flex;
+    justify-content: center;
+    background: #c397dd;
+    width: 100%;
+    background-size: cover;
+}
+
+footer p{
+    margin-top: 3%;
+    margin-bottom: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    color: #000000;
+}
+
+footer a{
+    color:#a002fc;
+    text-decoration: none;
+} 
+
+
+
+/*Usar o @keyframes para criar uma animação básica no CSS, semlhante ao AOS.*/
+@keyframes surgir{
+    from{
+        opacity: 0;
+        translate: -100vw 0;
+    }
+
+    to{
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+
+
+
+/*Vamos deixar o site RESPONSIVO, ou seja, adptável a telas de dispositivos menores*/
+@media all and (max-width: 820px){
+
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    section.modulo p{
+        margin-bottom: 15px;
+        text-align:center;
+        font-size: 1em;
+    }
+
+    section.modulo.parallax h1{
+        color: #a002fc;
+        text-align: center;
+        font-size: 25px;
+        text-transform: uppercase;
+        z-index: 50;
+    }
+
+    section.modulo.parallax span{
+        color: #fce302;
+    }    
+
+    section.modulo h2{
+        margin-bottom: 20px;
+        font-size: 20px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    section.modulo.parallax-1{
+        background-image: url(https://wallpapercave.com/wp/wp5334501.jpg);
+    }
+
+    section.modulo.content{
+        margin: auto;
+        width: 95%;
+        background: #c397dd;
+    }
+
+    section.modulo.content li{
+        font-size: 1em;
+    }
+
+    footer p{
+        margin-top: 2%;
+        margin-bottom: 1%;
+        margin-left: 2%;
+        margin-right: 2%;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 80%;
+        color: rgb(0, 0, 0);
+    }
+}
